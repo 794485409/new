@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>手机详细信息</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+</head>
+<body>
+<div ng-controller="PhoneDetailCtrl">
+    <img ng-src="{{mainImageUrl}}">
+    <p>{{phone.name}}</p>
+    <p>{{phone.description}}</p>
+    <ul>
+        <li ng-repeat="img in phone.images">
+            <img ng-src="{{img}}" ng-click="setImage(img)">
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <p>Availability and NetWorks</p>
+            <dl>
+                <dt>Availability</dt>
+                <dd ng-repeat="availability in phone.availability">{{availability}}</dd>
+            </dl>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            {{phone.additionalFeatures}}
+        </li>
+    </ul>
+    <dl>
+        <dt>Infrared</dt>
+        <dd>{{phone.connectivity.infrared}}</dd>
+    </dl>
+</div>
+</body>
+</html>

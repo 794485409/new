@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app manifest="demo.appcache">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>XHR和依赖注入</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+
+</head>
+<body>
+<!--从json文件中获取并遍历手机信息-->
+<div ng-controller="PhoneListCtrlXHR">
+    <p><input type="text" ng-model="query"/></p>
+    <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Order By Age</option>
+    </select>
+    <ul>
+        <li ng-repeat="phoneThree in phones|filter:query|orderBy:orderProp">
+            <p>{{phoneThree.name}}</p>
+            <p>{{phoneThree.id}}</p>
+            <P>{{phoneThree.snippet}}</P>
+        </li>
+    </ul>
+</div>
+<!--遍历出手机信息并显示详细信息-->
+    <div ng-controller="PhoneListCtrlXHR">
+        检索信息:<input type="text" ng-model="query"/>
+        <br>
+        <select ng-model="orderProp">
+            <option value="name">Alphabetical</option>
+            <option value="age">Order By Age</option>
+        </select>
+        <ul>
+            <li ng-repeat="phoneFour in phones|filter:query|orderBy:orderProp">
+                <a href="#/phones/{{phoneFour.id}}">
+                <img src="{{phoneFour.imageUrl}}"/></a>
+                <a href="#/phones/{{phoneFour.id}}">{{phoneFour.name}}</a>
+                <p>{{phoneFour.snippet}}</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

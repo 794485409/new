@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" ng-app >
+<head>
+  <meta charset="utf-8">
+  <title ng-bind-template="Google Phone Gallery:{{query}}">Google Phone Gallery</title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css">
+  <script src="js/angular.min.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body>
+<!--one-->
+<div class="main"  ng-controller="PhoneListCtrlOne">
+<!--PhoneListCtrlOne<h1>第一个</h1>-->
+  <!--<div>-->
+    <!--<input type="text" ng-model="query"/>{{query}}-->
+  <!--</div>-->
+  <!--<div>-->
+      <!--<ul>-->
+          <!--<li ng-repeat="phone in phonesOne|filter:query">-->
+              <!--{{phone.name|uppercase}}-->
+              <!--<p>{{phone.snippet}}</p>-->
+          <!--</li>-->
+      <!--</ul>-->
+  <!--</div>-->
+
+    <ul>
+        <li ng-repeat="map in maps">
+            latitude:{{map.latitude}}<br/>
+            longitude:{{map.longitude}}
+        </li>
+    </ul>
+</div>
+<!--two-->
+<div class="main" ng-controller="PhoneListCtrlTwo">
+<h1>第二个:加入下拉列表选项</h1>
+    <input type="text" ng-model="query"/>
+<select ng-model="orderProp">
+    <option value="name">Alphabetical</option>
+    <option value="age">Order By Age</option>
+</select>
+    <ul>
+        <li ng-repeat="phoneTwo in phonesTwo|filter:query| orderBy:orderProp">
+            {{phoneTwo.name}}<br>
+            {{phoneTwo.ae}}
+            <p>{{phoneTwo.snippet}}</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+doctype html
+html
+   head(lang="zh-CN")
+      meta(charset="UTF-8")
+      meta(name="viewport",content="width=device-width,initial-scale=1")
+      meta(http-equiv="X-UA-COMPATIBLE",content="IE=Edge")
+      title jade write bootStrap
+      link(rel="stylesheet",href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css")
+      script(src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js")
+      script(src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js")
+   body
+      .container
+         form.form-horizontal
+           .form-group
+              label.control-label 用户名：
+              input.form-control(type="text",placeholder="UserName")
+           .form-group
+               label.control-label 密&nbsp;&nbsp;码：
+               input.form-control(type="password",placeholder="PassWord")
+       .container
+           button.btn.btn-primary(data-toggle="modal",aria-hidden="true",data-target="#myModal") 触发模态框
+           .modal.fade#myModal(role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
+               .modal-dialog
+                   .modal-content
+                       .modal-header
+                           button.close(type="button",data-dismiss="modal",aria-hidden="true") &times;
+                           h4.modal-title#myModalLabel(style="text-align:center;")<strong>登录</strong>
+                       .modal-body
+                           form.form-horizontal(role="form")
+                               .form-group
+                                   label.control-label.col-md-4.col-sm-4.col-xs-4 用户名:
+                                   input.form-control(type="text",placeholder="UserName",style="width:200px;")
+                               .form-group
+                                   label.control-label.col-md-4.col-sm-4.col-xs-4 密&nbsp;&nbsp;码:
+                                   input.form-control(type="password",placeholder="PassWord",style="width:200px;")
+                               .form-group
+                                   label.control-label.col-md-4.col-sm-4.col-xs-4 邮&nbsp;&nbsp;箱:
+                                   input.form-control(type="email",placeholder="Email",style="width:200px;")
+                       .modal-footer
+                           button.btn.btn-primary(type="submit") Login
+                           button.btn.btn-default(type="button",data-dismiss="modal") Colse

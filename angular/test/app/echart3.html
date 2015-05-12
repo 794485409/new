@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>多重漏斗</title>
+</head>
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            echarts:"dlist"
+        }
+    });
+    require(
+            [
+                    'echarts',
+                    'echarts/chart/funnel',
+                    'echarts/chart/pie'
+            ],
+            function(ec){
+                var l=ec.init(document.getElementById("main"));
+                var option={
+                    title:{
+                        text:"杰威尔护肤品",
+                        subtext:"超耐磨",
+                        x:'center'
+                    },
+                    toolbox:{
+                        show:true,
+                        orient:'vertical',
+                        y:'center',
+                        feature:{
+                            mark:{
+                                show:true
+                            },
+                            dataView:{
+                                show:true,
+                                readOnly:false
+                            },
+                            magicType:{
+                                show:true,
+                                type:['funnel','pie'],
+                                option: {
+                                    pie: {
+                                        radius : [0, 50]
+                                    }
+                                }
+                            },
+                            restore:{show:true},
+                            saveAsImage:{show:true}
+                        }
+                    },
+                    tooltip:{
+                        show:true,
+                        trigger:'item',
+                        formatter:"{a}<br/> {b}:{c} ({d}%)"
+                    },
+                    legend:{
+                        show:true,
+                        orient:"vertical",
+                        x:'left',
+                        data:['火山泥男士洁面乳','竹炭护理洗发露','强力洁面膜','不伤手手工皂','沐浴清香露']
+                    },
+                    calculable:true,
+                    series:[
+                        {
+                            name:"漏斗图C",
+                            type:'funnel',
+                            width:'40%',
+                            height:'45%',
+                            x:'5%',
+                            y:'10%',
+                            center:['30%','70%'],//pie
+                            sort:'ascending',
+                            funnelAlign:'right',
+                            data:[
+                                {value:'40',name:'火山泥男士洁面乳'},
+                                {value:'60',name:'竹炭护理洗发露'},
+                                {value:'75',name:'强力洁面膜'},
+                                {value:'30',name:'不伤手手工皂'},
+                                {value:'50',name:'沐浴清香露'}
+                            ]
+                        },
+                        {
+                            name:"漏斗图B",
+                            type:'funnel',
+                            width:'40%',
+                            height:'45%',
+                            x:'55%',
+                            y:'10%',
+                            funnelAlign:'left',
+                            center:['70%','30%'],//pie
+                            data:[
+                                {value:'40',name:'火山泥男士洁面乳'},
+                                {value:'50',name:'竹炭护理洗发露'},
+                                {value:'80',name:'强力洁面膜'},
+                                {value:'40',name:'不伤手手工皂'},
+                                {value:'45',name:'沐浴清香露'}
+                            ]
+                        },
+                        {
+                            name:"漏斗图A",
+                            type:'funnel',
+                            width:'40%',
+                            height:'45%',
+                            x:'5%',
+                            y:'55%',
+                            funnelAlign:'right',
+                            center:['30%','30%'],//pie
+                            data:[
+                                {value:'40',name:'火山泥男士洁面乳'},
+                                {value:'60',name:'竹炭护理洗发露'},
+                                {value:'75',name:'强力洁面膜'},
+                                {value:'30',name:'不伤手手工皂'},
+                                {value:'50',name:'沐浴清香露'}
+                            ]
+                        },
+                        {
+                            name:"漏斗图D",
+                            type:'funnel',
+                            width:'40%',
+                            height:'45%',
+                            x:'55%',
+                            y:'55%',
+                            sort:'ascending',
+                            funnelAlign:'left',
+                            center:['70%','70%'],//pie
+                            data:[
+                                {value:'40',name:'火山泥男士洁面乳'},
+                                {value:'60',name:'竹炭护理洗发露'},
+                                {value:'75',name:'强力洁面膜'},
+                                {value:'30',name:'不伤手手工皂'},
+                                {value:'50',name:'沐浴清香露'}
+                            ]
+                        }
+                    ]
+                }
+                l.setOption(option);
+            }
+    );
+</script>
+<body>
+    <div id="main" style="width:900px;height:400px;"></div>
+</body>
+</html>

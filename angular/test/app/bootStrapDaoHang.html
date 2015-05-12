@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>bootStrap导航、模态框及标签页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-pills nav-justified" id="mytabs">
+            <li role="presentation" class="active"><a href="javascript:void(0)">第一个</a></li>
+            <li role="presentation" class="disabled"><a href="javascript:void(0)">第二个</a></li>
+            <li role="presentation"><a href="javascript:void(0)">第三个</a></li>
+            <li role="presentation">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-hidden="true">交通线路<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="presentation" class="dropdown-header">地铁</li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">八号线</a></li>
+                    <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="javascript:void(0)">九号线<span aria-hidden="true">&times;</span></a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">十号线</a></li>
+                    <li role="presentation" class="dropdown-header">公交车</li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">868路</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">浦东11路</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">934路</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav nav-pills nav-stacked" id="mytab">
+            <li role="presentation"><a href="javascript:void(0)">第一个</a></li>
+            <li role="presentation" class="disabled"><a href="javascript:void(0)">第二个</a></li>
+            <li role="presentation" class="active"><a href="javascript:void(0)">第三个</a></li>
+        </ul>
+
+    <h2>创建模态框</h2>
+    <!--按钮触发-->
+    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">按钮触发模态框</button>
+    <!--设置模态框-->
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModelLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModelLabel" style="text-align: center">登录！</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-4">用户名:</label>
+                            <input type="text" class=" form-control" placeholder="UserName" style="width: 200px;">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-4">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                            <input type="password" class=" form-control" placeholder="PassWord" style="width: 200px;">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-4">邮&nbsp;&nbsp;&nbsp;&nbsp;箱:</label>
+                            <input type="email" class=" form-control" placeholder="Email" style="width: 200px;">
+                            <div class="input-group-addon">@</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Login</button>&nbsp;
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <hr>
+    <h1>标签页</h1>
+    <div class="container">
+        <ul class="nav-tabs nav"  id="myTablink">
+            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+            <li role="presentation"><a href="#profile" data-toggle="tab">Profile</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" id="myMessage" class="dropdown-toggle" data-toggle="dropdown">个人信息<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#one" tabindex="-1" data-toggle="tab">one</a></li>
+                    <li><a href="#two" tabindex="-1" data-toggle="tab">two</a></li>
+                    <li><a href="#three" tabindex="-1" data-toggle="tab">three</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+                <p>这是我的家，家的感觉只有在外才能感觉的到。</p>
+                <p>这是我的家，家的感觉只有在外才能感觉的到。</p>
+                <p>这是我的家，家的感觉只有在外才能感觉的到。</p>
+                <p>这是我的家，家的感觉只有在外才能感觉的到。</p>
+                <p>这是我的家，家的感觉只有在外才能感觉的到。</p>
+            </div>
+            <div class="tab-pane fade" id="profile">
+                <h3>标签页</h3>
+                <p>这是什么文件，什么标签页?</p>
+                <p>这是什么文件，什么标签页?</p>
+                <p>这是什么文件，什么标签页?</p>
+                <p>这是什么文件，什么标签页?</p>
+                <p>这是什么文件，什么标签页?</p>
+            </div>
+            <div class="tab-pane fade" id="one">
+                <p>第一个。</p>
+                <p>第一个。</p>
+                <p>第一个。</p>
+                <p>第一个。</p>
+                <p>第一个。</p>
+            </div>
+            <div class="tab-pane fade" id="two">
+                <p>第二个。</p>
+                <p>第二个。</p>
+                <p>第二个。</p>
+                <p>第二个。</p>
+                <p>第二个。</p>
+            </div>
+            <div class="tab-pane fade" id="three">
+                <p>第三个。</p>
+                <p>第三个。</p>
+                <p>第三个。</p>
+                <p>第三个。</p>
+                <p>第三个。</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#mytabs a").click(function(e){
+            $(this).tab("show");
+        })
+        $("#mytab a").click(function(e){
+            $(this).tab("show");
+        })
+       // $("#myTablink li:eq(1) a").tab("show");//从下标为1的li中获取
+       // $('#myTablink a[href="#profile"]').tab('show');//通过id获取
+//        $("a[data-toggle='tab']").on('shown.bs.tab',function(){
+//            alert(100);
+//        })                                        //显示后触发事件
+    </script>
+</body>
+</html>
